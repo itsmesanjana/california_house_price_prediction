@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Prediction Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div class="container result-container">
+
+    <!-- 🤖 TITLE -->
+    <h1>🤖 Prediction Result</h1>
+    <p class="subtitle">AI-powered estimate generated successfully</p>
+
+    <!-- 💰 ANIMATED PRICE CARD -->
+    <div class="result-card">
+
+        <div class="price-label">Estimated Property Value</div>
+
+        <div id="price" class="price-value">
+            $0
+        </div>
+
+        <div class="confidence">
+            Based on trained ML model
+        </div>
+
+    </div>
+
+    <!-- 🔁 ACTION BUTTONS -->
+    <div class="actions">
+
+        <a href="/" class="btn secondary">🔁 New Prediction</a>
+
+    </div>
+
+</div>
+
+
+<!-- 🎬 COUNT-UP ANIMATION SCRIPT -->
+<script>
+
+    const finalValue = {{ prediction }};
+    const element = document.getElementById("price");
+
+    let start = 0;
+    const duration = 1200;
+    const increment = finalValue / (duration / 16);
+
+    function animate() {
+        start += increment;
+
+        if (start < finalValue) {
+            element.textContent = "$" + Math.floor(start).toLocaleString();
+            requestAnimationFrame(animate);
+        } else {
+            element.textContent = "$" + finalValue.toLocaleString();
+        }
+    }
+
+    animate();
+
+</script></body>
+</html>

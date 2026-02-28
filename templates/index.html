@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>California House Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HERO SECTION -->
+<h1>California Housing Price Prediction System</h1>
+<p class="subtitle">
+A machine learning web application deployed using Flask for real-time housing price estimation.
+</p>
+
+<hr>
+
+<!-- PROJECT OVERVIEW -->
+<h2>Project Overview</h2>
+<p>
+This project demonstrates an end-to-end machine learning workflow, from 
+exploratory data analysis and model training to production deployment 
+through a Flask-based web application.
+</p>
+
+<p>
+The system predicts median housing prices in California districts using 
+demographic and geographic features. The trained regression model is 
+integrated into a REST-enabled backend and served through a clean user interface.
+</p>
+
+<hr>
+
+<!-- MODEL & DATASET -->
+<h2>Model & Dataset</h2>
+<p>
+The model was trained on the California Housing dataset using Linear Regression.
+Prior to training, complete exploratory data analysis (EDA) was performed,
+including feature inspection, correlation analysis, and data preprocessing.
+</p>
+
+<p>
+Input features include:
+</p>
+
+<ul>
+    <li>Median Income</li>
+    <li>House Age</li>
+    <li>Average Rooms</li>
+    <li>Population</li>
+    <li>Average Occupancy</li>
+    <li>Latitude</li>
+    
+</ul>
+
+<p>
+The objective is to estimate the median house value of a district based 
+on these attributes.
+</p>
+
+<hr>
+
+<!-- MODEL PERFORMANCE -->
+<h2>Model Performance</h2>
+<p>
+The model was evaluated using standard regression metrics:
+</p>
+
+<ul>
+    <li>R² Score: 0.51</li>
+    <li>Mean Squared Error: 0.66</li>
+    <li>Root Mean Squared Error: 0.81</li>
+</ul>
+
+<hr>
+
+<!-- HOW IT WORKS -->
+<h2>System Architecture</h2>
+<ul>
+    <li>Data preprocessing and model training in Python (Scikit-learn)</li>
+    <li>Serialized trained model using joblib</li>
+    <li>Flask backend for inference handling</li>
+    <li>REST API endpoint: <code>/api/predict</code></li>
+    <li>Frontend built with HTML and CSS</li>
+</ul>
+
+<hr>
+
+<!-- USE CASES -->
+<h2>Applications</h2>
+<ul>
+    <li>Property value estimation</li>
+    <li>Real estate investment analysis</li>
+    <li>Market trend evaluation</li>
+    <li>Demonstration of ML deployment workflow</li>
+</ul>
+
+<hr>
+
+<!-- PREDICTION FORM -->
+<h2>Predict Housing Price</h2>
+
+<form action="/predict" method="POST">
+    {% for col in columns %}
+        <input type="number" step="any" name="{{col}}" placeholder="{{col}}" required>
+    {% endfor %}
+
+    <button type="submit">Predict Price</button>
+</form>
+
+<hr>
+
+<!-- TECHNOLOGY STACK -->
+<h3>Technology Stack</h3>
+<p>
+Python • Flask • Scikit-learn • NumPy • HTML • CSS
+</p>
+
+<!-- FOOTER -->
+<p class="footer">
+Developed by Sanjana | Machine Learning & Data Science
+</p>
+</div>
+
+</body>
+</html>
