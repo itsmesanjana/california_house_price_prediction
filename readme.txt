@@ -134,9 +134,9 @@ CSS3
 ▶️ How to Run Locally
 
 1️⃣ Clone Repository
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/itsmesanjana/california_house_price_prediction.git
 2️⃣ Navigate to Project
-cd your-repo-name
+cd california_house_price_prediction
 3️⃣ Install Dependencies
 pip install -r requirements.txt
 4️⃣ Run Application
