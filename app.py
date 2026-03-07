@@ -32,7 +32,7 @@ def predict():
     )
 
 
-# 🔥 JSON API for Postman
+# JSON API for Postman
 @app.route("/api/predict", methods=["POST"])
 def api_predict():
 
